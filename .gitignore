@@ -1,0 +1,23 @@
+# Node
+node_modules/
+web/node_modules/
+
+# Next.js
+.next/
+web/.next/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Env
+.env*
+web/.env*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Sensitive
+sb db pass.txt
