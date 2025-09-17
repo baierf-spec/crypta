@@ -18,8 +18,25 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 ## API Endpoints
 
 - GET `/api/health` → `{ status: "ok" }`
-- POST `/api/analyze` → mock sentiment { positive, negative, neutral, trend }
-- POST `/api/ask` → mock answer
+- POST `/api/analyze` → sentiment for `{ symbol, limit? }` (uses X+OpenAI if keys present, else mock)
+- POST `/api/ask` → QA with `{ question, symbol? }` (uses OpenAI if key present)
+- POST `/api/cron/daily` → generates daily sentiments and short articles for BTC/ETH/SOL/ADA/XRP
+- GET `/api/articles?symbol=BTC` → list articles
+- GET `/api/articles/[id|slug]` → single article
+
+## Pages
+
+- `/` → landing with quick links
+- `/dashboard` → latest sentiment per coin
+- `/blog` and `/blog/[slug]` → generated articles
+- `/sitemap.xml` → sitemap
+
+## Environment variables
+
+- `OPENAI_API_KEY` (optional, enables live answers/articles)
+- `X_API_BEARER_TOKEN` (optional, enables live analyze from X)
+- `COINMARKETCAP_API_KEY` (optional, future price metadata)
+- `NEXT_PUBLIC_SITE_URL` (optional, for sitemap/SEO)
 
 ## Learn More
 
